@@ -1,0 +1,19 @@
+ .bor{
+      border: 6px solid Black;
+    }
+    
+    .teaser img {
+      border-radius: 5px;
+      display: block;
+      margin-bottom: 22px;
+      max-width: 100%
+    }
+img {
+    opacity: 0.2;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}    

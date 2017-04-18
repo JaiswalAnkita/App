@@ -1,0 +1,54 @@
+
+<div>
+<h1 style="text-align: center; text-decoration: underline;">Posts</h1>
+</div>
+<div class="container">
+
+<table class="table table-hover table-responsive" >
+  <thead style="border: 2px solid black;">
+    <tr class="info">
+      <th>Title</th>
+        <th>Body</th>
+      <th colspan="3"></th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+
+  <tbody style="text-align: center;">
+    <% @posts.each do |post|%>
+    
+      <tr style="border: 2px solid black;">
+        <td class="success"><%= post.title %></td>
+        <td class="danger"><%= post.body %></td>
+        <td class="warning"><%= link_to 'Show', post %></td>
+        <td class="info"><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td class="active"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= form_for(post.comments.new) do |f| %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+   <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+<div class="container">
+<%= link_to 'New Post', new_post_path %>
+<!--<a href="new.html.erb">New Post</a> -->
+<section class="teaser col-1-3">
+  <h5>Speakers</h5>
+  <a href="#">
+    <img src="assets/speakers.jpg" alt="Professional Speaker" height="115px;" width="200px;" opacity: 0.5; filter: alpha(opacity=50);>
+    <h3>World-Class Speakers</h3>
+  </a>
+  <p>Joining us from all around the world are over twenty fantastic speakers, here to share their stories.</p>
+</section>
+</div>

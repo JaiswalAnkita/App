@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Page</title>
+	<style>
+		p {
+             text-shadow: 3px 6px 2px grey;
+          }	
+	</style>
+</head>
+<body>
+<h1 style="text-decoration: underline; text-transform: uppercase;">Editing Post</h1>
+<p>This is a Editing page</p>
+<%= render 'form', post: @post %>
+
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', posts_path %>
+</body>
+</html>
