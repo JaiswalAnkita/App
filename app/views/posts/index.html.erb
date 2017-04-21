@@ -1,6 +1,10 @@
-
-<div>
+<div class="row">
+<div class="col-sm-6">
 <h1 style="text-align: center; text-decoration: underline;">Posts</h1>
+</div>
+<div>
+  <h1 style="text-align: right; text-decoration: underline;">Comments</h1>
+</div>
 </div>
 <div class="container">
 
@@ -9,8 +13,9 @@
     <tr class="info">
       <th>Title</th>
         <th>Body</th>
+        <th>User</th>
       <th colspan="3"></th>
-      <th>Comment</th>
+      <th>Body</th>
     </tr>
   </thead>
 
@@ -20,15 +25,20 @@
       <tr style="border: 2px solid black;">
         <td class="success"><%= post.title %></td>
         <td class="danger"><%= post.body %></td>
+        <td class="success"><%= (post.present? and post.user.present?) ? post.user.email : "Email not available" %></td>
         <td class="warning"><%= link_to 'Show', post %></td>
         <td class="info"><%= link_to 'Edit', edit_post_path(post) %></td>
         <td class="active"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= form_for(post.comments.new) do |f| %>
   <div class="field">
-    <%= f.label :body %>
+    
     <%= f.text_area :body %>
-  </div>
-  
+  </div>  
+  <% if @posts.present? %>
+   <% @posts.each do |post| %>
+      <%= post.title %>
+   <% end %>
+<% end %>
 
   <div class="actions">
     <%= f.submit %>
